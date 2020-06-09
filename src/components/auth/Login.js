@@ -3,7 +3,7 @@ import DataManager from '../../modules/DataManager'
 
 
 const Login = (props) => {
-  let [user, setUser] = useState({username:"", password:""})
+  let [user, setUser] = useState({username: "", password: "", isSupervisor: false})
   
   const updateCredentials = (evt) => {
     const stateToChange = {...user};
@@ -18,7 +18,13 @@ const Login = (props) => {
         if (employee[0].password !== user.password) {
           alert("Invalid password")
         } else {
-          props.setUser(user)
+          if (employee[0].isSupervisor) {
+            const stateToChange = {...user};
+            stateToChange.isSupervisor = true
+            props.setUser(stateToChange)
+          } else {
+            props.setUser(user)
+          }
         }
       } else {
         alert("Invalid username")

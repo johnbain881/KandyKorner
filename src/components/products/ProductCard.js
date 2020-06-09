@@ -6,7 +6,7 @@ const ProductCard = (props) => {
     <div className="card">
       <h3>Product: {props.name}</h3>
       <p>Price: {props.price}</p>
-      <button onClick={() => props.history.push(`/products/${props.id}/`)}>Details</button>
+      <button onClick={() => props.history.push(`/products/${props.id}`)}>Details</button>
     </div>
   )
 }
