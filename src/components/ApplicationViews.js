@@ -5,6 +5,9 @@ import NavBar from './nav/NavBar'
 import ProductList from './products/ProductList'
 import EmployeeList from './employees/EmployeeList'
 import LocationList from './locations/LocationList'
+import EmployeeDetails from './employees/EmployeeDetails'
+import ProductDetails from './products/ProductDetails'
+import ProductForm from './products/ProductForm'
 
 const ApplicationViews = (props) => {
   const isAuthenticated = () => {
@@ -24,11 +27,9 @@ const ApplicationViews = (props) => {
   }
 
   useEffect(() => {
-    console.log("Redirect!")
   }, [hasUser])
   
   if (!hasUser) {
-    console.log("We don't have a user!")
     return (
       <Login setUser={setUser} />
       )
@@ -38,9 +39,23 @@ const ApplicationViews = (props) => {
         <NavBar clearUser={clearUser} />
         <Route
           exact
-          path="/products"
+          path="/"
           render={props => {
             return <ProductList {...props} />
+          }}
+        />
+        <Route
+          exact
+          path="/products/:productId(\d+)"
+          render={props => {
+            return <ProductDetails productId={parseInt(props.match.params.productId)} {...props} />
+          }}
+        />
+        <Route
+          exact
+          path="/products/add"
+          render={props => {
+            return <ProductForm />
           }}
         />
         <Route
@@ -55,6 +70,13 @@ const ApplicationViews = (props) => {
           path="/employees"
           render={props => {
             return <EmployeeList {...props} />
+          }}
+        />
+        <Route
+          exact
+          path="/employees/:employeeId(\d+)"
+          render={props => {
+            return <EmployeeDetails employeeId={parseInt(props.match.params.employeeId)} {...props} />
           }}
         />
       </>
