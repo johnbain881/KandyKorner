@@ -10,13 +10,19 @@ const EmployeeDetails = (props) => {
     .then(employeeFromDatabase => setEmployee(employeeFromDatabase))
   }
   useEffect(getEmployee, [])
+
+  const deleteEmployee = () => {
+    DataManager.delete("employees", props.employeeId)
+    .then(() => props.history.push("/employees"))
+  }
+
   return (
     <div>
       <h3>Name: {employee.firstName} {employee.lastName}</h3>
       <p>Address: {employee.address}</p>
       <p>Phone Number: {employee.phone}</p>
       <p>Work Location: {employee.location.name}</p>
-      {(JSON.parse(sessionStorage.getItem('user')).isSupervisor ? <button>Fire Employee</button> : null)}
+      {(JSON.parse(sessionStorage.getItem('user')).isSupervisor ? <button onClick={deleteEmployee}>Fire Employee</button> : null)}
     </div>
   )
 }

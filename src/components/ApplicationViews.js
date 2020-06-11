@@ -55,7 +55,7 @@ const ApplicationViews = (props) => {
           exact
           path="/products/add"
           render={props => {
-            return <ProductForm />
+            return <ProductForm {...props} />
           }}
         />
         <Route

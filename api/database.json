@@ -47,6 +47,18 @@
       "name": "Chocolate Tux",
       "price": "3.89",
       "productTypeId": 1
+    },
+    {
+      "name": "asdf",
+      "price": 1234,
+      "productTypeId": 1,
+      "id": 9
+    },
+    {
+      "name": 1234,
+      "price": 1234,
+      "productTypeId": 1,
+      "id": 10
     }
   ],
   "productTypes": [
@@ -206,6 +218,21 @@
       "id": 16,
       "productId": 8,
       "locationId": 1
+    },
+    {
+      "productId": 10,
+      "locationId": 2,
+      "id": 23
+    },
+    {
+      "productId": 9,
+      "locationId": 1,
+      "id": 30
+    },
+    {
+      "productId": 9,
+      "locationId": 2,
+      "id": 31
     }
   ]
 }
