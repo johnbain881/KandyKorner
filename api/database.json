@@ -59,6 +59,18 @@
       "price": 1234,
       "productTypeId": 1,
       "id": 10
+    },
+    {
+      "name": "lollipop",
+      "price": 1000,
+      "productTypeId": 3,
+      "id": 11
+    },
+    {
+      "name": "this is another test",
+      "price": 1,
+      "productTypeId": 1,
+      "id": 12
     }
   ],
   "productTypes": [
@@ -233,6 +245,21 @@
       "productId": 9,
       "locationId": 2,
       "id": 31
+    },
+    {
+      "productId": 11,
+      "locationId": 1,
+      "id": 32
+    },
+    {
+      "productId": 11,
+      "locationId": 2,
+      "id": 34
+    },
+    {
+      "productId": 12,
+      "locationId": 2,
+      "id": 36
     }
   ]
 }

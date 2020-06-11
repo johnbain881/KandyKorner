@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Input, Label, Button, Alert } from 'reactstrap'
 import DataManager from '../../modules/DataManager'
 
 
@@ -35,11 +36,11 @@ const Login = (props) => {
 
   return (
     <>
-      <input onChange={updateCredentials} id="username" placeholder="Username" type="text"></input>
-      <label htmlFor="username">Username</label>
-      <input onChange={updateCredentials} id="password" placeholder="Password" type="password"></input>
-      <label htmlFor="password">Password</label>
-      <button onClick={handleLogin}>Submit</button>
+      <Input onChange={updateCredentials} id="username" placeholder="Username" type="text"></Input>
+      <Label htmlFor="username">Username</Label>
+      <Input onChange={updateCredentials} id="password" placeholder="Password" type="password"></Input>
+      <Label htmlFor="password">Password</Label>
+      <Button onClick={handleLogin}>Submit</Button>
     </>
   )
 }

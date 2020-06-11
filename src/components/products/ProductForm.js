@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Input, Button, Label, FormGroup} from 'reactstrap'
 import DataManager from '../../modules/DataManager'
 
 
@@ -119,57 +120,34 @@ const ProductForm = (props) => {
 
   return (
     <>
-      <input onChange={updateProduct} placeholder="Product Name" id="name" type="text" value={product.name}></input>
-      <label htmlFor="name">Product Name</label>
-      <input onChange={updateProduct} placeholder="Product Price" id="price" type="number" value={product.price}></input>
-      <label htmlFor="price">Product Price</label>
-      <select id="productTypeId" onChange={updateProduct}>
+    <FormGroup>
+      <Input onChange={updateProduct} placeholder="Product Name" id="name" type="text" value={product.name}></Input>
+      <Label htmlFor="name">Product Name</Label>
+    </FormGroup>
+    <FormGroup>
+      <Input onChange={updateProduct} placeholder="Product Price" id="price" type="number" value={product.price}></Input>
+      <Label htmlFor="price">Product Price</Label>
+    </FormGroup>
+    <FormGroup>
+      <Input type="select" id="productTypeId" onChange={updateProduct}>
         <option key="0" value="">Please select a Product Type</option>
         {productTypes.map(productType => <option selected={productType.id === product.productTypeId? "selected" : null} key={productType.id} value={productType.id}>{productType.name}</option>)}
-      </select>
-      <label htmlFor="productTypeId">Product Type</label>
+      </Input>
+      <Label htmlFor="productTypeId">Product Type</Label>
+    </FormGroup>
       <div>
         {locations.map(location => 
         <>
           <input onChange={updateProductLocation} defaultChecked={locationIds.includes(location.id)} id={location.id} type="checkbox" value={location.id} name={location.name}/> 
-          <label htmlFor={location.id}>{location.name}</label>
+          <Label htmlFor={location.id}>{location.name}</Label>
         </>
         )}
       </div>
       
 
-      <button onClick={handleProduct}>Add New Candy</button>
+      <Button onClick={handleProduct}>Add New Candy</Button>
     </>
   )
 }
 
 export default ProductForm
-
-// Product
-// {
-//   "id": 1,
-//   "name": "Pink Gummy Bears",
-//   "price": "3.99",
-//   "productTypeId": 2
-// },
-
-// ProductType
-// {
-//   "id": 1,
-//   "name": "Chocolate"
-// },
-
-// ProductLocation
-// {
-//   "id": 1,
-//   "productId": 1,
-//   "locationId": 2
-// },
-
-// Location
-// {
-//   "id": 1,
-//   "name": "Kandy Korner Kidz",
-//   "address": "202 Success Circle, Nashville, TN",
-//   "phone": "154-7622"
-// },

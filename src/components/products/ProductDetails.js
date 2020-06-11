@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Button } from 'reactstrap'
 import DataManager from '../../modules/DataManager'
 
 
@@ -32,7 +33,7 @@ const ProductDetails = (props) => {
       <ul>
         {product.locations.map(location => <li key={location.id}>{location.name}</li>)}
       </ul>
-      <button onClick={handleEdit}>Edit</button>
+      <Button onClick={handleEdit}>Edit</Button>
     </div>
   )
 }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Button } from 'reactstrap'
 import DataManager from '../../modules/DataManager'
 
 
@@ -22,7 +23,9 @@ const EmployeeDetails = (props) => {
       <p>Address: {employee.address}</p>
       <p>Phone Number: {employee.phone}</p>
       <p>Work Location: {employee.location.name}</p>
-      {(JSON.parse(sessionStorage.getItem('user')).isSupervisor ? <button onClick={deleteEmployee}>Fire Employee</button> : null)}
+      <div>
+      {(JSON.parse(sessionStorage.getItem('user')).isSupervisor ? <Button onClick={deleteEmployee}>Fire Employee</Button> : null)}
+      </div>
     </div>
   )
 }
