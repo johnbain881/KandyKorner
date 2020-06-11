@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button } from 'reactstrap'
 
 
 const ProductCard = (props) => {
@@ -6,7 +7,9 @@ const ProductCard = (props) => {
     <div className="card">
       <h3>Product: {props.name}</h3>
       <p>Price: {props.price}</p>
-      <button onClick={() => props.history.push(`/products/${props.id}`)}>Details</button>
+      <div>
+      <Button onClick={() => props.history.push(`/products/${props.id}`)}>Details</Button>
+      </div>
     </div>
   )
 }
