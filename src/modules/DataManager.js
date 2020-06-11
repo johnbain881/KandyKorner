@@ -18,13 +18,18 @@ export default {
       body: JSON.stringify(data),
     })
   },
-  put: (resource, data, id) => {
+  put: (resource, id, data) => {
     return fetch(`${url}/${resource}/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
+    })
+  },
+  delete: (resource, id) => {
+    return fetch(`${url}/${resource}/${id}`, {
+      method: 'DELETE',
     })
   }
 }

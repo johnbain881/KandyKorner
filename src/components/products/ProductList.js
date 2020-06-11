@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import DataManager from '../../modules/DataManager'
 import ProductCard from './ProductCard'
 
@@ -17,7 +16,7 @@ const ProductList = (props) => {
 
   return (
     <>
-      <Link to="/products/add">Add a new product!</Link>
+      <button onClick={() => props.history.push("/products/add")}>Add a new product!</button>
       <div className="card-container">
         {products.map(product => 
           <ProductCard key={product.id} {...props} {...product} />

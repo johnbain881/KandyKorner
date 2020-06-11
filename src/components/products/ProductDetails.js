@@ -19,6 +19,11 @@ const ProductDetails = (props) => {
     getProduct()
   }, [props.productId])
 
+  const handleEdit = () => {
+    sessionStorage.setItem("Edit", props.productId)
+    props.history.push("/products/add")
+  }
+
   return (
     <div>
       <h3>Product: {product.name}</h3>
@@ -27,7 +32,7 @@ const ProductDetails = (props) => {
       <ul>
         {product.locations.map(location => <li key={location.id}>{location.name}</li>)}
       </ul>
-      <button onClick={() => console.log("click!")}>Edit</button>
+      <button onClick={handleEdit}>Edit</button>
     </div>
   )
 }
